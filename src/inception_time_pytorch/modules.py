@@ -4,11 +4,6 @@ from collections import OrderedDict
 
 warnings.filterwarnings("ignore", category=UserWarning, module="torch.nn")
 
-# ---------------------------------------------------------------------
-# Author: Flavio Giammarino
-# THIS CODE WAS TAKEN FROM https://github.com/flaviagiammarino/inception-time-pytorch/tree/main
-# ---------------------------------------------------------------------
-
 
 class Inception(torch.nn.Module):
     def __init__(self, input_size, filters):
