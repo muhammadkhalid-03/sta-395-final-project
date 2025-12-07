@@ -5,10 +5,6 @@ from sklearn.utils.class_weight import compute_class_weight
 from inception_time_pytorch.modules import InceptionModel
 
 
-# ---------------------------------------------------------------------
-# Author: Flavio Giammarino
-# THIS CODE WAS TAKEN FROM https://github.com/flaviagiammarino/inception-time-pytorch/tree/main
-# ---------------------------------------------------------------------
 class InceptionTime:
 
     def __init__(self, x, y, filters, depth, models):
