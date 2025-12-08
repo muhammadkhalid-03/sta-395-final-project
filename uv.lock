@@ -1746,6 +1746,7 @@ dependencies = [
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
+    { name = "pytorchtime" },
     { name = "scikit-learn" },
     { name = "scipy" },
     { name = "torch" },
@@ -1758,6 +1759,7 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "numpy", specifier = ">=2.3.4" },
     { name = "pandas", specifier = ">=2.3.3" },
+    { name = "pytorchtime", specifier = ">=0.1.1" },
     { name = "scikit-learn", specifier = ">=1.7.2" },
     { name = "scipy", specifier = ">=1.16.3" },
     { name = "torch", specifier = ">=2.9.1" },
@@ -1981,6 +1983,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/bb/32/9269ee5981995e760c3bf51d6cf7f84a2ce051eca2315753910585bce50d/pytorch_ranger-0.1.1.tar.gz", hash = "sha256:aa7115431cef11b57d7dd7bc86e7302a911dae467f62ec5d0b10e1ff744875db", size = 7865, upload-time = "2020-03-30T07:37:22.194Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0d/70/12256257d861bbc3e176130d25be1de085ce7a9e60594064888a950f2154/pytorch_ranger-0.1.1-py3-none-any.whl", hash = "sha256:1e69156c9cc8439185cb8ba4725b18c91947fbe72743e25aca937da8aeb0c8ec", size = 14436, upload-time = "2020-03-30T07:37:21.198Z" },
+]
+
+[[package]]
+name = "pytorchtime"
+version = "0.1.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "torch" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f7/e3/9a81bb969978e759e21a0045fc41e051ae4d376fa9029a4fe6a77189bff0/pytorchtime-0.1.1.tar.gz", hash = "sha256:ef9d4b7ae4b5f2fafc871262c81811a0514895f64a2bd013a9f95f634dd5d5dd", size = 37284, upload-time = "2023-06-12T13:03:13.969Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fb/62/be018b21636dc2b40c0460f8ee9fcbd27cecff9ab20affcf04a41bc61f23/pytorchtime-0.1.1-py3-none-any.whl", hash = "sha256:e7b8bca62116b7cce93fe78978eb1bd531ef57df5ebce630a9b27f1131d14ac3", size = 42247, upload-time = "2023-06-12T13:03:12.088Z" },
 ]
 
 [[package]]
