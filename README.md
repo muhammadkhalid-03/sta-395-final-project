@@ -4,4 +4,4 @@ To add new packages:
 uv add pandas
 ```
 
-Hello
+Hello, here is some data.
