@@ -24,7 +24,7 @@ We used the Adam optimizer with a learning rate of $1$x$10^{-5}$. To reduce over
 
 The figure above shows the training loss of the InceptionTime model, demonstrating stable convergence during the model optimization process. 
 
-Training was conducted for 100 epochs using mini-batches of size 32. While longer training led to better convergence, excessive epochs led to worse generalization. Additionally, applying gaussian noise with a magnitude varying from 0.01-0.05 also seemed to have reduced model performance compared to simply normalizing the data before training.
+Training was conducted for 200 epochs using mini-batches of size 32. While longer training led to better convergence, excessive epochs led to worse generalization. Additionally, applying gaussian noise with a magnitude varying from 0.01-0.05 also seemed to have reduced model performance compared to simply normalizing the data before training.
 
 \section{Results}
-The final InceptionTime model achieved an accuracy of approximately 0.85 and a weighted F1 score of 0.85 on the test set. While this performance was indeed comparable to that of our feature engineering approach, the deep learning model demonstrated the ability to learn directly from raw signals without custom features. However, performance was sensitive to the model's complexity and training duration. 
+The final InceptionTime model achieved an accuracy of approximately 0.868 and a weighted F1 score of 0.85 on the test set. While this performance was indeed comparable to that of our feature engineering approach, the deep learning model demonstrated the ability to learn directly from raw signals without custom features. However, performance was sensitive to the model's complexity and training duration. 
