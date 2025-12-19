@@ -1,0 +1,30 @@
+\subsection{Deep Learning with InceptionTime}
+
+For our deep learning component, we selected InceptionTime, an ensemble of Inception networks designed for time-series classification that use convolutional neural networks (CNN), specifically developed for time-series classification tasks.
+
+Prior to model training, we normalized each signal using a per-series z-score transformation:
+$$x' = \frac{x-\mu_x}{\sigma_x + \epsilon}$$
+where $\mu_x$ and $\sigma_x$ represent the mean and standard deviation of a single signal. The purpose for this was to preserve the relative temporal structure of each heartbeat and prevent the model from exploiting absolute amplitude differences. By doing this, we ensured that the model's learning was driven by rhythm irregularities. 
+
+Model training was performed on an NVIDIA T4 GPU that we were able to get access through Google Colab's free tier. The final model configuration used in this procedure consisted of:
+\begin{itemize}
+    \item Input channels: $1$ Univariate Signal, reshaped to $(327, 1, 18530)$.
+    \item Depth: 4 stacked Inception blocks).
+    \item No. of Filters: 32 per convolutional path.
+    \item Kernel Size: 32.
+    \item Bottleneck layers: Enabled
+    \item Residual connections: Enabled
+\end{itemize}
+
+The model was trained using cross-entropy loss with with class-specific weights to address the dataset's imbalance. Since abnormal heartbeats made up the majority of the samples, we scaled classification penalties inversely to class frequency, aiming to maintain sensitivity to the minority class.
+
+We used the Adam optimizer with a learning rate of $1$x$10^{-5}$. To reduce overfitting—a significant risk given the limited dataset size—we used L2 weight decay ($\lambda=10^{-3}$) to all trainable parameters. The purpose of this regularization was to discourage overly complex solutions by penalizing large weights, allowing for better generalization over unseen data.
+
+[Insert loss curve]
+
+The figure above shows the training loss of the InceptionTime model, demonstrating stable convergence during the model optimization process. 
+
+Training was conducted for 100 epochs using mini-batches of size 32. While longer training led to better convergence, excessive epochs led to worse generalization. Additionally, applying gaussian noise with a magnitude varying from 0.01-0.05 also seemed to have reduced model performance compared to simply normalizing the data before training.
+
+\section{Results}
+The final InceptionTime model achieved an accuracy of approximately 0.85 and a weighted F1 score of 0.85 on the test set. While this performance was indeed comparable to that of our feature engineering approach, the deep learning model demonstrated the ability to learn directly from raw signals without custom features. However, performance was sensitive to the model's complexity and training duration. 
